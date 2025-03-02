@@ -1,0 +1,10 @@
+# robots.txt for Shaurya Rohatgi's personal website
+# Special thanks to Dr. C. Lee Giles for teaching me about web crawling, 
+# search engines, and the importance of robots.txt files.
+# Your mentorship has been invaluable to my career in information retrieval.
+
+User-agent: *
+Allow: /
+
+# Sitemap location (if you add one in the future)
+# Sitemap: https://yourwebsite.com/sitemap.xml 

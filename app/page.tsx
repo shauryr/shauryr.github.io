@@ -21,7 +21,7 @@ export default function Home() {
         <p className="text-gray-300 mb-4 text-center">
           Applied Scientist | LLM & IR Researcher | PhD in Informatics
           <br /><br />
-          I was building search engines, advanced retrieval and re-ranking systems long before they rebranded it as "RAG" when LLMs took over the spotlight.
+          I was building search engines, advanced retrieval and re-ranking systems long before they were rebranded as "RAG" when LLMs took over the spotlight.
         </p>
         <div className="flex space-x-3 mb-4">
           <Link href="https://twitter.com/shauryr" aria-label="Twitter" className="text-gray-300 hover:text-white">
@@ -364,10 +364,8 @@ export default function Home() {
                   S2QA: Research Question Answering
                 </Link>
               </h3>
-              <p>
-                Pioneered a research Q&A tool employing Semantic Scholar and GPT-4 to provide authoritative answers
-                drawn from top-tier research papers.
-              </p>
+              <p className="text-gray-300">Pioneered a research Q&A tool employing Semantic Scholar and GPT-4 to provide authoritative answers
+                drawn from top-tier research papers.</p>
             </div>
           </div>
         </div>
@@ -433,7 +431,7 @@ export default function Home() {
               </Link>
             </h3>
             <p>
-              Team Lead - Project was funded for $17,500 and has received support from LaunchBox at the The Pennsylvania State University.
+              Team Lead - Project was funded for $17,500 and has received support from LaunchBox at The Pennsylvania State University.
             </p>
           </div>
           <div>
@@ -458,7 +456,7 @@ export default function Home() {
               Students were taught how to crawl the web using ScraPy and build a search engine with the crawled
               documents using ElasticSearch.
             </li>
-            <li>Worked with graduate students to create custom search engines -PrivaSeer</li>
+            <li>Worked with graduate students to create a custom search engines</li>
           </ul>
         </div>
       </section>

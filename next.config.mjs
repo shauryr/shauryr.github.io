@@ -5,8 +5,8 @@ try {
   // ignore error
 }
 
+// User site doesn't need repo-specific configuration
 const isGithubPages = process.env.GITHUB_PAGES === 'true'
-const repoName = 'shaurya-bio-minimal'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -21,10 +21,7 @@ const nextConfig = {
   },
   // Setting output to 'export' for static site generation
   output: 'export',
-  // Set the base path for GitHub Pages
-  basePath: isGithubPages ? `/${repoName}` : '',
-  // Set the asset prefix for GitHub Pages
-  assetPrefix: isGithubPages ? `/${repoName}/` : '',
+  // User sites (username.github.io) don't need basePath or assetPrefix
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,

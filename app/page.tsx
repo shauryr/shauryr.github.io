@@ -24,19 +24,19 @@ export default function Home() {
           I specialize in building state-of-the-art retrieval systems and large language models for scientific applications.
         </p>
         <div className="flex space-x-4 mb-4">
-          <Link href="https://twitter.com/shauryr" aria-label="Twitter profile" className="text-gray-300 hover:text-white">
+          <Link href="https://twitter.com/shauryr" aria-label="Twitter profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <Twitter size={20} className="sm:w-6 sm:h-6" />
           </Link>
-          <Link href="https://github.com/shauryr" aria-label="GitHub profile" className="text-gray-300 hover:text-white">
+          <Link href="https://github.com/shauryr" aria-label="GitHub profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <Github size={20} className="sm:w-6 sm:h-6" />
           </Link>
-          <Link href="https://www.linkedin.com/in/shaurya-rohatgi" aria-label="LinkedIn profile" className="text-gray-300 hover:text-white">
+          <Link href="https://www.linkedin.com/in/shaurya-rohatgi" aria-label="LinkedIn profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <Linkedin size={20} className="sm:w-6 sm:h-6" />
           </Link>
           <Link href="/assets/cv.pdf" aria-label="Download CV" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <FileText size={20} className="sm:w-6 sm:h-6" />
           </Link>
-          <Link href="mailto:shauryr@gmail.com" aria-label="Email contact" className="text-gray-300 hover:text-white">
+          <Link href="mailto:shauryr@gmail.com" aria-label="Email contact" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <Mail size={20} className="sm:w-6 sm:h-6" />
           </Link>
         </div>

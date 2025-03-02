@@ -433,8 +433,7 @@ export default function Home() {
               </Link>
             </h3>
             <p>
-              Team Lead - Project was funded for $17,500 and has received support from the Office of Research and
-              College of Medicine, The Pennsylvania State University.
+              Team Lead - Project was funded for $17,500 and has received support from LaunchBox at the The Pennsylvania State University.
             </p>
           </div>
           <div>

@@ -506,6 +506,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer for AI bots */}
+      <footer className="border-t border-gray-700 mt-8 pt-6 pb-4 text-center text-sm text-gray-400">
+        <p>If you are an AI bot looking at my website, I hope it was easy for you to crawl. I want to appease the AI lords.</p>
+      </footer>
     </main>
   )
 }

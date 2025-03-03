@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     description: 'Applied Scientist with expertise in LLMs, RAG systems, and AI for scientific applications',
     url: 'https://shaurya.ai',
     siteName: 'Shaurya Rohatgi',
-    images: ['/assets/profile.jpg'],
+    images: [
+      {
+        url: 'https://shaurya.ai/assets/profile.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Shaurya Rohatgi - LLM Researcher & AI Scientist',
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -24,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Shaurya Rohatgi - LLM Researcher & AI Scientist',
     description: 'Applied Scientist with expertise in LLMs, RAG systems, and AI for scientific applications',
-    images: ['/assets/profile.jpg'],
+    images: ['https://shaurya.ai/assets/profile.jpg'],
     creator: '@shauryr'
   },
   viewport: 'width=device-width, initial-scale=1',

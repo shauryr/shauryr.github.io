@@ -1,0 +1,24 @@
+# Shaurya Rohatgi - Personal Website
+
+> A personal website showcasing Shaurya Rohatgi's profile, expertise, experience, education, projects, and publications. Built with Next.js, React, TypeScript, and Tailwind CSS. Focuses on LLMs, AI for Science, and Information Retrieval.
+
+This site provides an overview of Shaurya Rohatgi's professional background and research interests. Key areas include:
+
+- Large Language Models (LLMs)
+- Retrieval-Augmented Generation (RAG)
+- AI for Scientific Discovery
+- Information Retrieval and Search Engines
+
+The website is a single-page application built with modern web technologies.
+
+## Key Information
+
+- [Homepage](https://shaurya.ai/): The main content of the website. (Note: No `.md` version currently available)
+- [Curriculum Vitae (CV)](https://shaurya.ai/assets/cv.pdf): Downloadable PDF of Shaurya's CV.
+- [Google Scholar](https://scholar.google.com/citations?hl=en&user=UpHQFasAAAAJ&view_op=list_works&sortby=pubdate): Profile detailing publications and citations.
+- [LinkedIn Profile](https://www.linkedin.com/in/shaurya-rohatgi): Professional profile on LinkedIn.
+- [GitHub Profile](https://github.com/shauryr): Personal GitHub profile with projects.
+
+## Optional
+
+- [Website Source Code](https://github.com/shauryr/shaurya-bio-minimal): The GitHub repository for this website. (Note: URL based on local workspace name, may need updating if public repo differs) 

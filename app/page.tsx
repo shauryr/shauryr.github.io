@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Twitter, Github, Mail, Phone, Linkedin, FileText } from "lucide-react"
+import { Twitter, Github, Mail, Phone, Linkedin, FileText, GraduationCap } from "lucide-react"
 import Link from "next/link"
 
 export default function Home() {
@@ -32,6 +32,9 @@ export default function Home() {
           </Link>
           <Link href="https://www.linkedin.com/in/shaurya-rohatgi" aria-label="LinkedIn profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <Linkedin size={20} className="sm:w-6 sm:h-6" />
+          </Link>
+          <Link href="https://scholar.google.com/citations?hl=en&user=UpHQFasAAAAJ&view_op=list_works&sortby=pubdate" aria-label="Google Scholar profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
+            <GraduationCap size={20} className="sm:w-6 sm:h-6" />
           </Link>
           <Link href="/assets/cv.pdf" aria-label="Download CV" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <FileText size={20} className="sm:w-6 sm:h-6" />

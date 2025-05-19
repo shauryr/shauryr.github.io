@@ -21,4 +21,11 @@ The website is a single-page application built with modern web technologies.
 
 ## Optional
 
-- [Website Source Code](https://github.com/shauryr/shaurya-bio-minimal): The GitHub repository for this website. (Note: URL based on local workspace name, may need updating if public repo differs) 
+- [Website Source Code](https://github.com/shauryr/shaurya-bio-minimal): The GitHub repository for this website. (Note: URL based on local workspace name, may need updating if public repo differs)
+
+## Experience
+
+- **Research Scientist, Institute of Foundation Models, MBZUAI** (May 2025 - Present)
+  - Focusing on foundational research in large language models and their applications in scientific discovery and AI systems.
+- **Applied Scientist, AllSci** (2023 - May 2025)
+  - Led the development of advanced LLM systems and RAG pipelines for scientific applications, with a focus on parameter-efficient fine-tuning and improving factual accuracy in domain-specific tasks. 

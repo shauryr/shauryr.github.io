@@ -19,9 +19,9 @@ export default function Home() {
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-white text-center">Shaurya Rohatgi</h1>
         <p className="text-gray-300 mb-4 text-center text-sm sm:text-base">
-          Applied Scientist | LLM & IR Researcher | PhD in Informatics
+          Research Scientist | LLM & IR Researcher | PhD in Informatics
           <br /><br />
-          I specialize in building state-of-the-art retrieval systems and large language models for scientific applications.
+          I specialize in building state-of-the-art retrieval systems and training large language models.
         </p>
         <div className="flex space-x-4 mb-4">
           <Link href="https://twitter.com/shauryr" aria-label="Twitter profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
@@ -84,10 +84,30 @@ export default function Home() {
           {/* Vertical timeline line */}
           <div className="absolute left-12 sm:left-20 top-0 bottom-0 w-0.5 bg-gray-600"></div>
           
+          {/* Institute of Foundation Models, MBZUAI Entry */}
+          <div className="flex mb-8 sm:mb-12 relative">
+            <div className="w-20 sm:w-28 flex-shrink-0 relative">
+              <div className="text-gray-300 text-sm sm:text-base font-bold">May 2025 - Present</div>
+            </div>
+            <div className="flex-grow">
+              <div className="flex items-start">
+                <div className="w-16 h-16 mr-4 flex-shrink-0 rounded overflow-hidden flex items-center justify-center">
+                  <Image src="/assets/logos/og_ifm.jpg" alt="Institute of Foundation Models logo" width={64} height={64} className="object-contain p-1" />
+                </div>
+                <div>
+                  <h3 className="font-bold">Research Scientist</h3>
+                  <p className="mt-2">
+                    Starting a new position at the Institute of Foundation Models, MBZUAI, focusing on foundational research in large language models.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* AllSci Entry */}
           <div className="flex mb-8 sm:mb-12 relative">
             <div className="w-20 sm:w-28 flex-shrink-0 relative">
-              <div className="text-gray-300 text-sm sm:text-base font-bold">2023 - Present</div>
+              <div className="text-gray-300 text-sm sm:text-base font-bold">2023 - May 2025</div>
             </div>
             <div className="flex-grow">
               <div className="flex items-start">

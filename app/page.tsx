@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-white text-center">Shaurya Rohatgi</h1>
         <p className="text-gray-300 mb-4 text-center text-sm sm:text-base">
-          Research Scientist | LLM & IR Researcher | PhD in Informatics
+          Research Scientist | LLMs & IR Researcher | PhD in Informatics
           <br /><br />
           I specialize in building state-of-the-art retrieval systems and training large language models.
         </p>
@@ -97,7 +97,7 @@ export default function Home() {
                 <div>
                   <h3 className="font-bold">Research Scientist</h3>
                   <p className="mt-2">
-                    Starting a new position at the Institute of Foundation Models, MBZUAI, focusing on foundational research in large language models.
+                  Institute of Foundation Models, MBZUAI, specializing in foundational LLM research and developing high-quality training datasets that advance model performance in reasoning, planning, coding, and mathematics.
                   </p>
                 </div>
               </div>

@@ -26,6 +26,8 @@ The website is a single-page application built with modern web technologies.
 ## Experience
 
 - **Research Scientist, Institute of Foundation Models, MBZUAI** (May 2025 - Present)
+  - Building a gigantic high quality token collection which improve planning, reasoning, coding, and math abilities of the LLMs. 
   - Focusing on foundational research in large language models and their applications in scientific discovery and AI systems.
+  - Responsible for experimentation and picking the best mixes of data for mid-training of LLMs.
 - **Applied Scientist, AllSci** (2023 - May 2025)
   - Led the development of advanced LLM systems and RAG pipelines for scientific applications, with a focus on parameter-efficient fine-tuning and improving factual accuracy in domain-specific tasks. 

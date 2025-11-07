@@ -66,8 +66,9 @@ export default async function BlogPost({ params }: { params: { slug: string } })
               prose-strong:text-white prose-strong:font-bold
               prose-code:text-pink-400 prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-gray-700
               prose-pre:bg-gray-800 prose-pre:border prose-pre:border-gray-700 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
-              prose-ul:mb-4 prose-ul:text-gray-300 prose-ol:mb-4 prose-ol:text-gray-300
-              prose-li:mb-2 prose-li:text-gray-300
+              prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ul:text-gray-300
+              prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-ol:text-gray-300
+              prose-li:mb-2 prose-li:text-gray-300 prose-li:marker:text-purple-400
               prose-img:rounded-lg prose-img:shadow-md
               prose-blockquote:border-l-4 prose-blockquote:border-purple-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-400"
             dangerouslySetInnerHTML={{ __html: post.content || '' }}

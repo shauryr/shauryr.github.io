@@ -18,12 +18,12 @@ export default async function BlogPost({ params }: { params: { slug: string } })
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-900 text-gray-100">
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="mb-12">
           <Link
             href="/blog"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
           >
             ← Back to Blog
           </Link>
@@ -31,8 +31,8 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
         <article>
           <header className="mb-8">
-            <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <h1 className="text-4xl font-bold mb-4 text-white">{post.title}</h1>
+            <div className="flex items-center gap-4 text-sm text-gray-400">
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -45,7 +45,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs"
+                      className="px-2 py-1 bg-gray-800 text-purple-300 rounded text-xs border border-gray-700"
                     >
                       {tag}
                     </span>
@@ -56,19 +56,20 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           </header>
 
           <div
-            className="prose prose-neutral dark:prose-invert max-w-none
-              prose-headings:font-bold
+            className="prose prose-invert max-w-none
+              prose-headings:font-bold prose-headings:text-white
               prose-h1:text-3xl prose-h1:mb-4
               prose-h2:text-2xl prose-h2:mb-3 prose-h2:mt-8
               prose-h3:text-xl prose-h3:mb-2 prose-h3:mt-6
-              prose-p:mb-4 prose-p:leading-relaxed
-              prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-              prose-code:text-primary prose-code:bg-secondary prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-              prose-pre:bg-secondary prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
-              prose-ul:mb-4 prose-ol:mb-4
-              prose-li:mb-2
+              prose-p:mb-4 prose-p:leading-relaxed prose-p:text-gray-300
+              prose-a:text-purple-400 prose-a:no-underline hover:prose-a:underline hover:prose-a:text-purple-300
+              prose-strong:text-white prose-strong:font-bold
+              prose-code:text-pink-400 prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-gray-700
+              prose-pre:bg-gray-800 prose-pre:border prose-pre:border-gray-700 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
+              prose-ul:mb-4 prose-ul:text-gray-300 prose-ol:mb-4 prose-ol:text-gray-300
+              prose-li:mb-2 prose-li:text-gray-300
               prose-img:rounded-lg prose-img:shadow-md
-              prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic"
+              prose-blockquote:border-l-4 prose-blockquote:border-purple-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-400"
             dangerouslySetInnerHTML={{ __html: post.content || '' }}
           />
         </article>

@@ -1,27 +1,20 @@
 ---
-title: "Welcome to My Blog"
+title: "My Journey so far . ."
 date: "2025-11-05"
-excerpt: "A simple space for sharing thoughts on AI, research, and technology."
-tags: ["meta", "introduction"]
+excerpt: "How I ended up in ML research and what keeps me going."
+tags: ["personal", "introduction"]
 ---
 
-# Welcome
+# Introduction
 
-This is a simple blog where I share my thoughts on AI research, language models, and technology.
 
-## What to Expect
+Hello everyone! Thank you for stopping by and visiting my blog.
 
-I'll be writing about:
+Brief Summary about me:
+```
+> I am an Alien with Extraordinary Abilities.
+> I love search and LLMs
+> I really enjoy hackathons and building working proof of concepts (I have won 5 hackathons in my career&mdash;see [my Devpost challenges](https://devpost.com/ShauryaRohatgi/challenges))
+```
 
-- **Research insights** from my work on foundation models
-- **Technical deep-dives** into interesting problems
-- **Reflections** on the field of AI
-- **Random thoughts** that don't fit anywhere else
-
-## Why This Blog?
-
-Sometimes ideas need more space than a paper or a tweet can provide. This is that space.
-
----
-
-Stay tuned for more posts!
+I started my journey in early 2015 when I joined TCS Research as a Researcher getting introduced to the world of Big data and ML.

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Twitter, Github, Mail, Phone, Linkedin, FileText, GraduationCap } from "lucide-react"
+import { Twitter, Github, Mail, Phone, Linkedin, FileText, GraduationCap, BookOpen } from "lucide-react"
 import Link from "next/link"
 
 export default function Home() {
@@ -24,6 +24,9 @@ export default function Home() {
           I specialize in building state-of-the-art retrieval systems and training large language models.
         </p>
         <div className="flex space-x-4 mb-4">
+          <Link href="/blog" aria-label="Blog" className="text-gray-300 hover:text-white">
+            <BookOpen size={20} className="sm:w-6 sm:h-6" />
+          </Link>
           <Link href="https://twitter.com/shauryr" aria-label="Twitter profile" className="text-gray-300 hover:text-white" target="_blank" rel="noopener noreferrer">
             <Twitter size={20} className="sm:w-6 sm:h-6" />
           </Link>

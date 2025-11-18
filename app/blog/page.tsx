@@ -4,6 +4,30 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react"
 export default function BlogIndex() {
   const posts = [
     {
+      slug: "llama4-context-window",
+      title: "10 Million Tokens: Why Llama 4's Context Window Is Less Revolutionary Than You Think",
+      date: "April 10, 2025",
+      readTime: "6 min read",
+      excerpt: "Meta's Llama 4 Scout just dropped with a 10 million token context window—roughly 7.5 million words. The headlines are breathless. But here's what nobody's asking: do we actually need this?",
+      tags: ["Llama 4", "Open Source", "Context Windows"]
+    },
+    {
+      slug: "qwen-vs-llama",
+      title: "Qwen 2.5 vs Llama: The Open Source AI Race Nobody's Talking About",
+      date: "April 8, 2025",
+      readTime: "7 min read",
+      excerpt: "While everyone obsesses over OpenAI vs Anthropic, a more consequential competition is playing out. Alibaba's Qwen 2.5 has quietly surpassed Meta's Llama in several key benchmarks—and the implications are significant.",
+      tags: ["Open Source", "Qwen", "Llama", "Competition"]
+    },
+    {
+      slug: "open-source-meaning",
+      title: "\"Open Source\" AI Is a Spectrum, Not a Binary—And That's Fine",
+      date: "April 5, 2025",
+      readTime: "6 min read",
+      excerpt: "\"That's not really open source!\" has become the AI community's favorite debate. But here's my controversial take: the obsession with definitional purity is missing the point entirely.",
+      tags: ["Open Source", "Licensing", "AI Ethics"]
+    },
+    {
       slug: "deepseek-disruption",
       title: "DeepSeek's $600B Disruption: Why Market Panic Misses the Point",
       date: "January 31, 2025",

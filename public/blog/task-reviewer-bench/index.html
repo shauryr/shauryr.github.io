@@ -491,6 +491,134 @@ figcaption { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-to
   <p>Telling a broken task from a clean one turns out to be easy: every model does it about two times in three, and so does a rule that reads one number from the task's config. <b>Pointing at the line that is actually wrong is the hard part.</b> The best model, Opus 5.5, does it on half the bugs while flagging over a third of good tasks as broken. Twelve of the 52 bugs were found by no model at all.</p>
 </div>
 
+<div class="figwrap" style="margin-top:28px"><style>
+.fx-fr { position: relative; }
+.fx-fr .plot { position: relative; width: 100%; }
+.fx-fr svg { display: block; width: 100%; height: auto; overflow: visible; }
+.fx-fr .bgr { fill: var(--bg); stroke: var(--frame); stroke-width: 1; }
+.fx-fr .grid { stroke: var(--rule); stroke-width: 1; }
+.fx-fr .tick { fill: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.fx-fr .axt { fill: var(--label); font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .06em; }
+.fx-fr .zone-stop-a { stop-color: var(--good); stop-opacity: .55; }
+.fx-fr .zone-stop-b { stop-color: var(--good); stop-opacity: .22; }
+.fx-fr .zone-stop-c { stop-color: var(--good); stop-opacity: .07; }
+.fx-fr .zlab { fill: var(--good); font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .06em; }
+.fx-fr .rnd { stroke: var(--good); stroke-width: 1.5; stroke-dasharray: 6 5; }
+.fx-fr .tmo { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 2 4; }
+.fx-fr .reflab { fill: var(--muted); font-family: var(--f-sans); font-size: 11.5px; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+.fx-fr .star { fill: var(--good); }
+.fx-fr .path { stroke: var(--good); stroke-width: 2; stroke-dasharray: 7 6; fill: none; transition: opacity .2s; }
+.fx-fr .gaplab { fill: var(--good); font-family: var(--f-sans); font-size: 12.5px; font-weight: 600; paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+.fx-fr .whisk { stroke-width: 1.5; opacity: .35; transition: opacity .2s; }
+.fx-fr .pt { stroke: var(--bg); stroke-width: 2.5; }
+.fx-fr .rp { fill: var(--bg); stroke: var(--v-ref); stroke-width: 2; }
+.fx-fr .mlab { fill: var(--ink); font-family: var(--f-sans); font-size: 12.5px; font-weight: 600; paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+.fx-fr .mlab .trb { font-family: var(--f-mono); font-size: 11px; font-weight: 400; fill: var(--muted); }
+.fx-fr .hit { fill: transparent; cursor: pointer; }
+.fx-fr .hit:focus { outline: none; }
+.fx-fr g.m.dim { opacity: .35; }
+.fx-fr g.m.on .whisk { opacity: .9; }
+.fx-fr .read { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+.fx-fr .read b { color: var(--ink); font-weight: 500; }
+.fx-fr .sw { display: inline-block; width: 18px; height: 0; border-top: 1.5px dashed var(--good); vertical-align: middle; margin-right: 6px; }
+.fx-fr .sw.dot { border-top: 1.5px dotted var(--muted); }
+.fx-fr .sw.zone { height: 10px; border: 0; background: var(--accent-soft); width: 12px; }
+.fx-fr figcaption { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 8px; }
+</style>
+<figure class="fx-fr" id="fr">
+  <div class="fig-head"><span class="lbl">Two skills at once · how far from a perfect reviewer</span>
+    <div class="seg" role="group" aria-label="Path shown"><button type="button" aria-pressed="true" data-k="0">Opus 5.5</button><button type="button" aria-pressed="false" data-k="1">DeepSeek</button><button type="button" aria-pressed="false" data-k="2">Haiku 5.5</button><button type="button" aria-pressed="false" data-k="3">GPT-6 Luna</button></div>
+  </div>
+  <div class="plot"><svg id="fr-svg" role="img" aria-label="Scatter plot. Across: tells broken from clean (balanced accuracy, 50 to 100 percent). Up: finds the broken line (0 to 100 percent of broken tasks). A green zone above random-line guessing deepens toward the top-right corner, a perfect reviewer. Opus 5.5 at 69 and 51 percent, DeepSeek 67 and 31, Haiku 5.5 66 and 28, GPT-6 Luna 65 and 14. A one-line timeout rule sits at 66 percent across."></svg><div class="tt" id="fr-tt" hidden></div></div>
+  <div class="read"><span><i class="sw zone"></i>better than guessing</span><span><i class="sw"></i><b>random lines</b> 18%: three random 10-line guesses per task</span><span><i class="sw dot"></i><b>timeout rule</b> 66%: reject if the test time limit is ≥ 900 s</span></div>
+  <figcaption>Every model sits next to the timeout rule, a rule that reads one number and no code. The empty space up and to the right is the gap between today's models and a maintainer. Whiskers are 95% intervals; Opus 5.5 ran 1 sample.</figcaption>
+</figure>
+<script>
+(function () {
+  const root = document.getElementById('fr'), svg = document.getElementById('fr-svg'), tt = document.getElementById('fr-tt');
+  const M = [
+    { k: 'Opus 5.5', c: '--v-anthropic', x: .692, xl: .573, xh: .786, y: .510, yl: .317, yh: .667, fa: 37, trb: '0.32', note: '1 sample' },
+    { k: 'DeepSeek', c: '--v-deepseek', x: .675, xl: .588, xh: .760, y: .308, yl: .202, yh: .438, fa: 43, trb: '0.09' },
+    { k: 'Haiku 5.5', c: '--v-anthropic', x: .657, xl: .561, xh: .742, y: .282, yl: .155, yh: .399, fa: 29, trb: '0.13' },
+    { k: 'GPT-6 Luna', c: '--v-openai', x: .652, xl: .553, xh: .749, y: .142, yl: .070, yh: .240, fa: 42, trb: '−0.07' },
+  ];
+  const RND = .184, TMO = .662;
+  let sel = 0, W = 760, H = 470, narrow = false;
+  const pct = v => Math.round(v * 100) + '%';
+  function render() {
+    W = Math.max(300, Math.round(root.getBoundingClientRect().width));
+    narrow = W < 560;
+    H = Math.round(Math.min(480, Math.max(320, W * (narrow ? 0.95 : 0.6))));
+    const ml = 40, mr = 14, mt = 22, mb = 34, pw = W - ml - mr, ph = H - mt - mb;
+    const X = v => ml + (v - .5) / .5 * pw, Y = v => mt + (1 - v) * ph;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('width', W); svg.setAttribute('height', H);
+    let s = `<defs><radialGradient id="fr-g" gradientUnits="userSpaceOnUse" cx="${X(1)}" cy="${Y(1)}" r="${Math.hypot(pw, ph) * 0.95}"><stop offset="0" class="zone-stop-a"/><stop offset=".5" class="zone-stop-b"/><stop offset="1" class="zone-stop-c"/></radialGradient></defs>`;
+    s += `<rect class="bgr" x="${ml}" y="${mt}" width="${pw}" height="${ph}"/>`;
+    s += `<rect x="${ml + 0.5}" y="${mt + 0.5}" width="${pw - 1}" height="${Y(RND) - mt}" fill="url(#fr-g)"/>`;
+    [.6, .7, .8, .9].forEach(v => s += `<line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${mt}" y2="${H - mb}"/>`);
+    [.2, .4, .6, .8].forEach(v => s += `<line class="grid" x1="${ml}" x2="${W - mr}" y1="${Y(v)}" y2="${Y(v)}"/>`);
+    [.5, .6, .7, .8, .9, 1].forEach(v => s += `<text class="tick" x="${X(v)}" y="${H - mb + 16}" text-anchor="${v === 1 ? 'end' : v === .5 ? 'start' : 'middle'}">${pct(v)}${v === .5 && !narrow ? ' chance' : ''}</text>`);
+    [0, .2, .4, .6, .8, 1].forEach(v => s += `<text class="tick" x="${ml - 6}" y="${Y(v) + 4}" text-anchor="end">${pct(v)}</text>`);
+    s += `<text class="axt" x="${W - mr}" y="${H - 2}" text-anchor="end">TELLS BROKEN FROM CLEAN →</text>`;
+    s += `<text class="axt" x="${ml + 8}" y="${mt - 8}">↑ FINDS THE BROKEN LINE</text>`;
+    s += `<text class="zlab" x="${ml + 10}" y="${mt + 18}">${narrow ? '' : 'BETTER THAN GUESSING'}</text>`;
+    s += `<line class="rnd" x1="${ml}" x2="${W - mr}" y1="${Y(RND)}" y2="${Y(RND)}"/>`;
+    s += `<line class="tmo" x1="${X(TMO)}" x2="${X(TMO)}" y1="${mt}" y2="${H - mb}"/>`;
+    s += `<text class="reflab" x="${X(TMO) + 6}" y="${H - mb - 8}">timeout rule</text>`;
+    s += `<text class="reflab" x="${W - mr - 6}" y="${Y(RND) + 15}" text-anchor="end">random lines</text>`;
+    const sx = X(1) - 12, sy = Y(1) + 12, r1 = 9, r2 = 3.8;
+    let star = ''; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? r2 : r1; star += `${i ? 'L' : 'M'}${(sx + r * Math.cos(a)).toFixed(1)} ${(sy + r * Math.sin(a)).toFixed(1)}`; }
+    s += `<path class="star" d="${star}Z"/><text class="zlab" x="${sx - 14}" y="${sy + 4}" text-anchor="end">${narrow ? '' : 'PERFECT REVIEWER'}</text>`;
+    // path for the selected model
+    const m = M[sel], px = X(m.x), py = Y(m.y), dx = sx - px, dy = sy - py, L = Math.hypot(dx, dy);
+    const ex = sx - dx / L * 16, ey = sy - dy / L * 16;
+    s += `<line class="path" x1="${px + dx / L * 14}" y1="${py + dy / L * 14}" x2="${ex}" y2="${ey}"/>`;
+    const ang = Math.atan2(dy, dx) * 180 / Math.PI, mx = (px + ex) / 2, my = (py + ey) / 2;
+    s += `<text class="gaplab" transform="translate(${mx},${my}) rotate(${ang}) translate(0,-9)" text-anchor="middle">${narrow ? `${Math.round((1 - m.y) * 100)} pts to go` : `room to grow: ${Math.round((1 - m.y) * 100)} pts on finding the line`}</text>`;
+    // random-lines reference point
+    s += `<circle class="rp" cx="${X(.5)}" cy="${Y(RND)}" r="5.5"/>`;
+    const lab = narrow
+      ? { 'Opus 5.5': [10, -8, 'start'], 'DeepSeek': [10, -6, 'start'], 'Haiku 5.5': [-10, 14, 'end'], 'GPT-6 Luna': [10, 14, 'start'] }
+      : { 'Opus 5.5': [12, -10, 'start'], 'DeepSeek': [12, -6, 'start'], 'Haiku 5.5': [-12, 16, 'end'], 'GPT-6 Luna': [12, 16, 'start'] };
+    M.forEach((d, i) => {
+      const cx = X(d.x), cy = Y(d.y), col = `var(${d.c})`, o = lab[d.k];
+      s += `<g class="m${i === sel ? ' on' : ''}" data-i="${i}">`;
+      s += `<line class="whisk" style="stroke:${col}" x1="${X(d.xl)}" x2="${X(d.xh)}" y1="${cy}" y2="${cy}"/><line class="whisk" style="stroke:${col}" x1="${cx}" x2="${cx}" y1="${Y(d.yl)}" y2="${Y(d.yh)}"/>`;
+      s += `<circle class="pt" style="fill:${col}" cx="${cx}" cy="${cy}" r="${i === sel ? 8 : 6.5}"/>`;
+      s += `<text class="mlab" x="${cx + o[0]}" y="${cy + o[1]}" text-anchor="${o[2]}">${d.k}${narrow ? '' : ` <tspan class="trb">TRB ${d.trb}</tspan>`}</text>`;
+      s += `<circle class="hit" cx="${cx}" cy="${cy}" r="16" tabindex="0" data-i="${i}" role="button" aria-label="${d.k}: finds the line ${pct(d.y)}, tells broken from clean ${pct(d.x)}, false alarms ${d.fa}%, TRB ${d.trb}"/>`;
+      s += `</g>`;
+    });
+    svg.innerHTML = s;
+    svg.querySelectorAll('.hit').forEach(h => {
+      const i = +h.dataset.i;
+      h.addEventListener('mouseenter', () => tip(i, h)); h.addEventListener('focus', () => tip(i, h));
+      h.addEventListener('mouseleave', hide); h.addEventListener('blur', hide);
+      h.addEventListener('click', () => pick(i));
+      h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(i); } });
+    });
+  }
+  function tip(i, h) {
+    const d = M[i], r = svg.getBoundingClientRect(), pr = root.querySelector('.plot').getBoundingClientRect(), k = r.width / W;
+    tt.innerHTML = `<b>${d.k}</b>${d.note ? ` <span style="color:var(--muted)">(${d.note})</span>` : ''}<br>Finds the line <span class="num">${pct(d.y)} (${pct(d.yl)}–${pct(d.yh)})</span><br>Broken vs clean <span class="num">${pct(d.x)} (${pct(d.xl)}–${pct(d.xh)})</span><br>False alarms <span class="num">${d.fa}%</span> · TRB <span class="num">${d.trb}</span>`;
+    tt.hidden = false;
+    const cx = +h.getAttribute('cx') * k + (r.left - pr.left), cy = +h.getAttribute('cy') * k + (r.top - pr.top);
+    const tw = tt.offsetWidth, left = Math.max(0, Math.min(pr.width - tw, cx - tw / 2));
+    tt.style.left = left + 'px'; tt.style.top = Math.max(0, cy - tt.offsetHeight - 16) + 'px';
+  }
+  function hide() { tt.hidden = true; }
+  function pick(i) {
+    sel = i;
+    root.querySelectorAll('.seg button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+    render();
+  }
+  root.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => pick(+b.dataset.k)));
+  render();
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(render, 120); });
+})();
+</script>
+</div>
+
 <section class="s" id="background">
   <h2>Background</h2>
   <div class="prose">

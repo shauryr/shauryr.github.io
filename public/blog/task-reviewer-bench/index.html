@@ -202,6 +202,17 @@ figcaption { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-to
   <p class="byline"><a href="/">Shaurya Rohatgi</a> · Built at the Vals AI Benchmaxxing hackathon · <a href="https://github.com/shauryr/benchmaster" target="_blank" rel="noopener">Code and data</a></p>
 </header>
 
+<div id="video" style="margin-top:40px; display:flex; flex-direction:column; gap:10px">
+  <p class="lbl">Short on time? Watch the 60-second version</p>
+  <figure class="figwrap" style="margin:0">
+    <video controls playsinline muted preload="metadata" poster="media/trb_poster.jpg" style="display:block; width:100%; height:auto; aspect-ratio:16/9; border:1px solid var(--frame); background:var(--bg-sunk)" aria-label="60-second video overview of Task Reviewer Bench">
+      <source src="media/trb_launch.mp4" type="video/mp4">
+      <a href="media/trb_launch.mp4">Open the video</a>
+    </video>
+    <figcaption>No sound. Covers the review loop, a real task that all 10 model answers accepted and a maintainer flagged (PR #946), how the set is built, and the results. Opus 5.5 ran 1 sample.</figcaption>
+  </figure>
+</div>
+
 <div class="hero"><div class="fx-results" id="fxr">
 <figure class="fxr-fig">
 <style>

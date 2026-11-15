@@ -77,6 +77,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="border-t border-gray-700 pt-6 sm:pt-8 pb-8">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">Blog ✍️</h2>
+        <div className="space-y-4">
+          <a href="/blog/task-reviewer-bench/" className="block border border-gray-700 rounded-md p-4 bg-gray-800 hover:border-gray-500 transition-colors">
+            <p className="font-semibold text-purple-300">Task Reviewer Bench: can models review the tasks that train them?</p>
+            <p className="text-sm text-gray-300 mt-1">
+              Models can write their own RL training tasks. We scored frontier models against real Terminal-Bench maintainer reviews: they must find the exact broken line. Interactive write-up.
+            </p>
+            <p className="text-sm text-emerald-300 mt-1">November 2026 · Vals AI Benchmaxxing hackathon</p>
+          </a>
+        </div>
+      </section>
+
       {/* Timeline Section */}
       <div className="border-t border-gray-700 pt-6 sm:pt-8">
         <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">Experience 💼</h2>
